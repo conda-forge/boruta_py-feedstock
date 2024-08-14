@@ -1,4 +1,4 @@
-{% set version = "0.3" %}
+{% set version = "0.4.3" %}
 
 package:
   name: boruta_py
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/B/Boruta/Boruta-{{ version }}.tar.gz
-  sha256: 06d42882a57a4db912e5b7b0b887427fbb6ee7e331d0c7c1f7c06a6658c99831
+  sha256: abd67119bb88c7d1675b0dfc78072e50b5ba1d32b7cc7664258a640ad3a495a4
 
 build:
   noarch: python
