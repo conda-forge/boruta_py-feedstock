@@ -5,25 +5,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/B/Boruta/Boruta-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/B/Boruta/Boruta-{{ version }}.tar.gz
   sha256: 06d42882a57a4db912e5b7b0b887427fbb6ee7e331d0c7c1f7c06a6658c99831
 
 build:
   noarch: python
-  number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
     - numpy >=1.10.4
-    - python
+    - python >={{ python_min }}
     - scikit-learn >=0.17.1
     - scipy >=0.17.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - boruta
 
